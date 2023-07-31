@@ -1,6 +1,6 @@
 {
   "name": "emomq-styles",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "emomq an enchanting npm package that weaves the magic of Emotion with the power of media queries, offering you an effortless journey into the realm of responsive web design. With a wave of EmoQuerify's wand, your React applications will adapt gracefully to every screen size, from enchanting mobile devices to colossal desktops.",
   "keywords": [
     "responsive",
