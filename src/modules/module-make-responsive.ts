@@ -1,53 +1,46 @@
-import { css } from "@emotion/react";
-import { omit } from "lodash";
-import { mq } from "./module-css-rules";
+import { css } from '@emotion/react';
+import { omit } from 'lodash';
+import { mq } from './module-css-rules';
 
-// Define the type for each item in the responsiveBlock array
 interface ResponsiveBlock {
-  property: string; // The CSS property to be responsive
-  min: number; // The minimum value for the property
-  max: number; // The maximum value for the property
-  unit?: string; // Optional CSS unit (e.g., px, em) for the property value
+  property: string;
+  min: number;
+  max: number;
+  unit?: string;
 }
 
-// The main function that generates responsive CSS rules based on breakpoints and responsiveBlock
 export const makeResponsive = (
   responsiveBlock: ResponsiveBlock[]
 ): ReturnType<typeof css> => {
-  // Omit the xsm breakpoint from the mq object (media query rules)
-  const reducedMq = omit(mq, "xsm");
-
-  // Calculate deltas for each item in the responsiveBlock
-  // Delta represents the difference between max and min divided by 3
+  const reducedMq = omit(mq, 'xsm');
   const deltas = responsiveBlock.map((item) => ({
     ...item,
     delta: (item.max - item.min) / 3,
-    first: `${item.property}: ${item.min}${item.unit || ""};`,
+    first: `${item.property}: ${item.min}${item.unit || ''};`,
   }));
 
-  // Construct the responsive CSS rules
-  return css`
-    ${Object.keys(reducedMq).reduce(
-      (acc, breakpoint, idx) => css`
-        ${acc} ${reducedMq[breakpoint](css`
-          ${deltas.reduce(
-            (group, delta) => css`
-              ${group}
-              ${delta.property}: ${delta.min +
-              delta.delta * (idx + 1)}${delta.unit || ""};
-            `,
-            css``
-          )};
-        `)}
-      `,
-      css``
-    )}
+  const responsiveStyles: string[] = [];
+  let idx = 0;
 
-    ${deltas.reduce(
-      (firsts, delta) => css`
-        ${firsts} ${delta.first};
-      `,
-      css``
-    )}
+  Object.keys(reducedMq).forEach((breakpoint) => {
+    const breakpointStyles = deltas.map(
+      (delta) =>
+        `${delta.property}: ${delta.min + delta.delta * (idx + 1)}${
+          delta.unit || ''
+        };`
+    );
+    responsiveStyles.push(`
+      @media ${reducedMq[breakpoint]} {
+        ${breakpointStyles.join('')}
+      }
+    `);
+    idx += 1;
+  });
+
+  const firstStyles = deltas.map((delta) => delta.first);
+
+  return css`
+    ${responsiveStyles.join('')}
+    ${firstStyles.join('')}
   `;
 };
