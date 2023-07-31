@@ -9,14 +9,14 @@
 ## Installation
 
 ```bash
-npm install emomq
+npm i emomq-styles
 ``````
 
 ## Usage
 
 ```js
 import { css } from "@emotion/react";
-import { mq, rd } from "your-package-name";
+import { mq, rd } from "emomq-styles";
 
 const responsiveStyles = css`
   font-size: 16px;
