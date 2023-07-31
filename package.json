@@ -1,0 +1,40 @@
+{
+  "name": "emomq",
+  "version": "1.0.0",
+  "description": "emomq an enchanting npm package that weaves the magic of Emotion with the power of media queries, offering you an effortless journey into the realm of responsive web design. With a wave of EmoQuerify's wand, your React applications will adapt gracefully to every screen size, from enchanting mobile devices to colossal desktops.",
+  "keywords": [
+    "responsive",
+    "emotion",
+    "media queries",
+    "CSS-in-JS",
+    "styles",
+    "UI",
+    "design",
+    "breakpoints",
+    "React",
+    "library",
+    "frontend",
+    "responsive design"
+  ],
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/setohe0909/emomq.git"
+  },
+  "author": "@setohe0909",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/setohe0909/emomq/issues"
+  },
+  "homepage": "https://github.com/setohe0909/emomq#readme",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}
