@@ -1,7 +1,7 @@
 # Emomq - Media Queries Library
 
-![npm version](https://img.shields.io/npm/v/emomq)
-![license](https://img.shields.io/npm/l/emomq)
+![npm version](https://img.shields.io/npm/v/emomq-styles)
+![license](https://img.shields.io/npm/l/emomq-styles)
 ![GitHub stars](https://img.shields.io/github/stars/setohe0909/emomq?style=social)
 
 > A powerful and easy-to-use CSS media queries library for responsive web design.
